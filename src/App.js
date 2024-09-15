@@ -1,18 +1,18 @@
 import { Switch } from '@headlessui/react'
-import { useRef } from 'react'
+import { useState } from 'react'
 
 export default function Toggle() {
-  const toggleRef = useRef(true)
-  const enabled = toggleRef.current
+ 
+  const [enabled, setEnabled] = useState(true)
 
   return (
     <div className='p-8 flex justify-center'>
       <Switch.Group as='div' className='flex items-center'>
         <Switch
-          checked={enabled}
+          checked={enabled} 
           onChange={() => {
-            toggleRef.current = !toggleRef.current
-            console.log(!toggleRef.current)
+            setEnabled(!enabled) 
+            console.log(!enabled) 
           }}
           className={classNames(
             enabled ? 'bg-indigo-600' : 'bg-gray-200',
